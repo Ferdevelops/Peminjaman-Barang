@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Barang</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR UNTUK MENAMPULKAN MENU NAVIGASI BAR DI BAGIAN ATAS WEBSITE -->
+    <nav class="navbar">
+      <div class="bar">
+        <a href="../index.html" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="#">Daftar Barang</a></li>
+          <li><a href="KritikSaran.html">Kritik & Saran</a></li>
+          <li><a href="KontakKami.html">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <!-- SECTION INI DIGUNAKAN UNTUK MENGATUR TATA LETAK AWAL  -->
+    <section class="barang-section" id="produk">
+      <h2 class="buku-text">Daftar Barang </h2>
+      <!-- DIV INI UNTUK MENGATUR SETIAP CARD YANG DIMASUKKAN KE DALAM DIV INI -->
+      <div class="barang-container">
+        <!-- DIV INI DIGUNAKAN UNTUK MENAMPILKAN SETIAP BARANG -->
+        <div class="barang-card">
+          <div>
+            <img src="../asset/Kabel.png" alt="Produk 2" />
+          </div>
+          <div class="details">
+            <h3 class="Stock">StopKontak</h3>
+            <p style="color: aliceblue;">Stock: 15</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html">
+              <input type="hidden" name="Barang" value="StopKontak">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+        <div class="barang-card">
+          <div>
+            <img src="../asset/laptop2.png" alt="Produk 1" />
+          </div>
+          <div >
+            <h3 class="Stock">Laptop</h3>
+            <p style="color: aliceblue;">Stock: 6</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html">
+              <input type="hidden" name="Barang" value="Laptop">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+        <div class="barang-card">
+          <div>
+            <img style="height: max-content;" src="../asset/Cekson.png" alt="Produk 3" />
+          </div>
+          <div class="details">
+            <h3 class="Stock">Speaker</h3>
+            <p style="color: aliceblue;">Stock: 2</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html">
+              <input type="hidden" name="Barang" value="Speaker">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+        <div class="barang-card">
+          <div>
+            <img src="../asset/Proyektor-LCD-1024x536-removebg-preview.png" alt="Produk 3" />
+          </div>
+          <div class="details">
+            <h3 class="Stock">LCD Proyektor</h3>
+          <p style="color: aliceblue;">Stock: 8</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html?">
+              <input type="hidden" name="Barang" value="LCD Proyektor">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+        <div class="barang-card">
+          <div>
+            <img src="../asset/Mouses-removebg-preview.png" alt="Produk 3" />
+          </div>
+          <div class="details">
+            <h3 class="Stock">Mouse</h3>
+          <p style="color: aliceblue;">Stock: 5</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html">
+              <input type="hidden" name="Barang" value="Mouse">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+        <div class="barang-card">
+          <div>
+            <img src="../asset/Keyboard-removebg-preview.png" alt="Produk 3" />
+          </div>
+          <div class="details">
+            <h3 class="Stock">Keyboard</h3>
+          <p style="color: aliceblue;">Stock: 5</p>
+          </div>
+          <div class="barang-pinjam">
+            <br>
+            <form action="Peminjaman.html">
+              <input type="hidden" name="Barang" value="Keyboard">
+              <button type="submit" class="button">Pinjam</button>
+            </form>
+            <br />
+          </div>
+        </div>
+       
+        
+      </div>
+      <br /><br />
+      <br />
+      <br />
+    </section>
+    <footer class="footer">
+      <div class="footerbawah">
+        <a class="judul" href="https://www.smkn8malang.sch.id/"><h2>SMKN 8 MALANG👍</h2></a>
+        <p></p>
+        <p>+62 341 323 123 | smkn8malang@gmail.com</p>
+      </div>
+    </footer>
+    <script>
+      // SCRIPT INI DIGUNAKAN UNTUK MEMBUAT TOMBOL YANG ADA DI NAVBAR DAPAT DITEKAN SAAT UKURAN LAYAR MENJADI KECIL
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+    </script>
+  </body>
+</html>

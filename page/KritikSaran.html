@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kritik & Saran</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="bar">
+        <a href="../index.html" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="DaftarBarang.html">Daftar Barang</a></li>
+          <li><a href="#">Kritik & Saran</a></li>
+          <li><a href="KontakKami.html">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <section class="contact-section" id="contact">
+        <form action="https://script.google.com/macros/s/AKfycbxoiRG3w5I05LwNTvijXto11D6eDG3zCy_pTpz9fqSowPz0uXL24hziVeXHAqRdHbMQ/exec" method="GET" class="contact-form">
+          <h2 class="ProdukSaya">Kritik & Saran</h2>
+          <br />
+          <div class="form-group">
+            <label for="name" class="buku-text">Nama:</label>
+            <input
+              class="kotakinput"
+              type="text"
+              id="name"
+              name="NAMA"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="Kelas" class="buku-text">Kelas</label>
+            <select name="Kelas" id="Kelas" class="kotakpilihan">
+              <option value="XRPLA">XRPLA</option>
+              <option value="XRPLB">XRPLB</option>
+              <option value="XRPLC">XRPLC</option>
+              <option value="XRPLD">XRPLD</option>
+              <option value="XIRPLA">XIRPLA</option>
+              <option value="XIRPLB">XIRPLB</option>
+              <option value="XIRPLC">XIRPLC</option>
+              <option value="XIRPLD">XIRPLD</option>
+              <option value="XIIRPLA">XIIRPLA</option>
+              <option value="XIIRPLB">XIIRPLB</option>
+              <option value="XIIRPLC">XIIRPLC</option>
+              <option value="XIIRPLD">XIIRPLD</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="email" class="buku-text" >Email:</label>
+            <input
+              class="kotakinput"
+              type="email"
+              id="email"
+              name="EMAIL"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="message" class="buku-text">Kritik & Saran:</label>
+            <textarea
+              class="kotakinput"
+              name="KRITIK_&_SARAN"
+              id="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="button"
+          >
+            Kirim Pesan
+          </button>
+        </form>
+    <script type="text/javascript">
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+    </script>
+  </body>
+</html>

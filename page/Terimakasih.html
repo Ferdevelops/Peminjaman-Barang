@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TERIMAKASIH</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="bar">
+        <a href="../index.html" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="DaftarBarang.html">Daftar Barang</a></li>
+          <li><a href="KritikSaran.html">Kritik & Saran</a></li>
+          <li><a href="KontakKami.html">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <section class="contact-section" id="contact">
+      <div class="contact-form">
+        <h2 class="buku-text">
+          Terima Kasih Telah Meminjam👍
+        </h2>
+        <hr />
+        <table border="1" id="userTable">
+          <thead>
+              <tr>
+                <th >Gambar</th>
+                  <th>Nama Lengkap</th>
+                  <th>Kelas</th>
+                  <th>Jenis Barang </th>
+                  <th>Jumlah Barang</th>
+                  <th>Jam Peminjaman</th>
+              </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+      </table>
+        
+        
+        <hr />
+        <p>
+          <i>"Jangan lupa kembalikan jika selesai"</i>
+        </p>
+        <br />
+        <button onclick="KeHome()" class="button">Kembali ke Home</button>
+        <button onclick="PinjamLagi()" class="button">Pinjam Lagi</button>
+        <button onclick="printTable()" class="button">Cetak Tabel</button>
+      </div>
+    </section>
+
+    <script>
+      function PinjamLagi(){
+        window.location.href = "Peminjaman.html"
+      }
+      function KeHome(){
+        window.location.href = "../index.html";
+      }
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+
+      const usersData = JSON.parse(localStorage.getItem("usersData"));
+      const tableBody = document.querySelector("#userTable tbody");
+
+      usersData.forEach(user => {
+            const row = document.createElement("tr");
+            const kolomgambar = document.createElement("td");
+            const gambar = document.createElement("img");
+            gambar.src = GambarMuncul(user.PilihBarang);
+            gambar.alt = user.PilihBarang;
+            gambar.style.width = "50px"
+            gambar.style.height = "auto";
+            kolomgambar.appendChild(gambar);
+            row.appendChild(kolomgambar);
+
+            Object.values(user).forEach(value => {
+                const cell = document.createElement("td");
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            tableBody.appendChild(row);
+        });
+        function GambarMuncul(barang){
+          if(barang == "StopKontak"){
+            return "../asset/Kabel.png";
+          }else if(barang == "Laptop"){
+            return "../asset/laptop2.png";
+          }else if(barang == "Speaker"){
+            return "../asset/Cekson.png";
+          }else if(barang == "LCD Proyektor"){
+            return "../asset/Proyektor-LCD-1024x536-removebg-preview.png";
+          }else if(barang == "Mouse"){
+            return "../asset/Mouses-removebg-preview.png";
+          }else{
+            return "../asset/Keyboard-removebg-preview.png";
+          }
+        }
+        function printTable() {
+          const printContents = document.getElementById("userTable").outerHTML; // Ambil HTML tabel
+          const originalContents = document.body.innerHTML; // Simpan isi asli body
+
+          document.body.innerHTML = printContents; // Ganti isi body dengan tabel
+          window.print(); // Cetak
+        }
+    </script>
+  </body>
+</html>

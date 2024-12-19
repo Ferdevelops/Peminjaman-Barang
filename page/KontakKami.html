@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontak Kami</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="bar">
+        <a href="../index.html" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="DaftarBarang.html">Daftar Barang</a></li>
+          <li><a href="KritikSaran.html">Kritik & Saran</a></li>
+          <li><a href="#">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <section class="contact-section" id="contact">
+      <div class="contact-form">
+        <h2 colspan="2" class="buku-text">Kontak Kami</h2>
+        <table class="Tabel">
+          <tr>
+            <td>
+              <img
+                src="../asset/instagram.png"
+                style="height: 20px; width: 20px"
+                alt=""
+              />
+            </td>
+            <td class="UbahText">RPL_SMKN8</td>
+            <td>
+              <img
+                src="../asset/youtube.png"
+                style="height: 20px; width: 20px"
+                alt=""
+              />
+            </td>
+            <td class="UbahText">SMK8RPL</td>
+            <td>
+              <img
+                src="../asset/gmail.png"
+                style="height: 20px; width: 20px"
+                alt=""
+              />
+            </td>
+            <td class="UbahText">SMKN8RPL@gmail.com</td>
+          </tr>
+        </table>
+        <br /><br /><br />
+      </div>
+    </section>
+    <script type="text/javascript">
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+    </script>
+  </body>
+</html>

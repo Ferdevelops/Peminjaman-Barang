@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Perpustakaan</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-color: #28283b;" >
+    <!-- NAVBAR UNTUK MENAMPULKAN MENU NAVIGASI BAR DI BAGIAN ATAS WEBSITE -->
+    <nav class="navbar">
+      <div class="bar">
+        <a href="https://www.smkn8malang.sch.id/" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="page/DaftarBarang.html">Daftar Barang</a></li>
+          <li><a href="page/KritikSaran.html">Kritik & Saran</a></li>
+          <li><a href="page/KontakKami.html">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <!-- SECTION DIBAWAH INI UNTUK TAMPILAN HOME DAN BERISI UCAPAN SELAMAT DATANG -->
+    <section class="welcome-section" id="welcome">
+      <div class="welcome-text">
+        <h1>Selamat Datang di tempat peminjaman barang jurusan</h1>
+        <p style="margin-bottom: 40px">Jika meminjam barang jangan lupa dikembalikan yaa..</p>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footerbawah">
+        <a class="judul" href="https://www.smkn8malang.sch.id/"><h2>SMKN 8 MALANG👍</h2></a>
+        <p></p>
+        <p>+62 341 323 123 | smkn8malang@gmail.com</p>
+      </div>
+    </footer>
+    
+    <script type="text/javascript">
+      // SCRIPT INI DIGUNAKAN UNTUK MEMBUAT TOMBOL YANG ADA DI NAVBAR DAPAT DITEKAN SAAT UKURAN LAYAR MENJADI KECIL
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+    </script>
+  </body>
+</html>

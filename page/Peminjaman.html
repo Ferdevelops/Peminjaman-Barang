@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistem Peminjaman</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="bar">
+        <a href="../index.html" class="judul">RPL</a>
+        <ul class="menu">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="DaftarBarang.html">Daftar Barang</a></li>
+          <li><a href="KritikSaran.html">Kritik & Saran</a></li>
+          <li><a href="KontakKami.html">Kontak Kami</a></li>
+        </ul>
+        <div class="tombol">&#9776;</div>
+      </div>
+    </nav>
+    <section class="contact-section" id="contact">
+      <div class="contact-form">
+      
+        <h2 class="buku-text">Sistem Peminjaman</h2>
+        <br />
+        <div class="form-group">
+          <label for="name" class="buku-text">Nama Lengkap:</label>
+          <input
+            class="kotakinput"
+            type="text"
+            id="name"
+            name="name"
+            
+          />
+        </div>
+        <div class="form-group">
+          <label for="Kelas" class="buku-text">Kelas</label>
+          <select name="Kelas" id="Kelas" class="kotakpilihan">
+            <option value="XRPLA">XRPLA</option>
+            <option value="XRPLB">XRPLB</option>
+            <option value="XRPLC">XRPLC</option>
+            <option value="XRPLD">XRPLD</option>
+            <option value="XIRPLA">XIRPLA</option>
+            <option value="XIRPLB">XIRPLB</option>
+            <option value="XIRPLC">XIRPLC</option>
+            <option value="XIRPLD">XIRPLD</option>
+            <option value="XIIRPLA">XIIRPLA</option>
+            <option value="XIIRPLB">XIIRPLB</option>
+            <option value="XIIRPLC">XIIRPLC</option>
+            <option value="XIIRPLD">XIIRPLD</option>
+          </select>
+          
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="PilihBuku" class="buku-text"
+            >Pilih Barang yang ingin dipinjam:</label
+          >
+          <select name="PilihBarang" id="PilihBarang" class="kotakpilihan">
+            <option value="StopKontak">StopKontak</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Speaker">Speaker</option>
+            <option value="LCD Proyektor">LCD Proyektor</option>
+            <option value="Mouse">Mouse</option>
+            <option value="Keyboard">Keyboard</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="JB" class="buku-text">Jumlah Barang:</label>
+          <input
+            type="text"
+            class="kotakinput"
+            id="JB"
+            name="JB"
+            
+            min="1"
+            max="3"
+          />
+        </div>
+        <div class="form-group">
+          <label for="jam" class="buku-text">Meminjam Jam Ke-</label>
+          <input
+            class="kotakinput"
+            type="time"
+            id="jam"
+            name="jam"
+            
+          />
+        </div>
+        
+        <button onclick="addData()" type="submit" class="button">Simpan</button>
+        <hr>
+        <h3>Detail Pemesanan</h3>
+      <table border="1" id="userTable">
+        <thead>
+            <tr>
+                <th>Gambar</th>
+                <th>Nama Lengkap</th>
+                <th>Kelas</th>
+                <th>Jenis Barang </th>
+                <th>Jumlah Barang</th>
+                <th>Jam Pinjam</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+      <br>
+      <button onclick="KonfirmasiData()" type="submit" class="button">Konfirmasi Peminjaman</button>
+    </div>
+      
+    </section>
+    <script >
+      const tombol = document.querySelector(".tombol");
+      const menu = document.querySelector(".menu");
+
+      tombol.addEventListener("click", () => {
+        menu.classList.toggle("aktif");
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const Pilihan = urlParams.get("Barang");
+
+      if(Pilihan){
+        const option = document.getElementById("PilihBarang");
+        option.value = Pilihan;
+      }
+
+      let users = [];
+
+      function addData() {
+          const name = document.getElementById("name").value;
+          const Kelas = document.getElementById("Kelas").value;
+          const PilihBarang = document.getElementById("PilihBarang").value;
+          const JB = document.getElementById("JB").value;
+          const jam = document.getElementById("jam").value;
+
+          if (name && Kelas && PilihBarang && JB && jam) {
+              users.push({ name, Kelas, PilihBarang, JB, jam });
+              clearForm();
+              displayData();
+          } else {
+              alert("Harap isi semua data");
+          }
+      }
+
+      function clearForm() {
+          document.getElementById("name").value = '';
+          document.getElementById("Kelas").value = '';
+          document.getElementById("PilihBarang").value = '';
+          document.getElementById("JB").value = '';
+          document.getElementById("jam").value = '';
+      }
+      function KonfirmasiData(){
+          if(users.length == 0){
+              alert("Tidak ada data yang dapat dikonfirmasi");
+          } else{
+              localStorage.setItem("usersData", JSON.stringify(users));
+              window.location.href = "Terimakasih.html";
+          }
+      }
+
+      function displayData() {
+          const tableBody = document.getElementById("tableBody");
+          tableBody.innerHTML = "";
+
+          if (users.length == 0) {
+              tableBody.innerHTML = `
+              <tr>
+              <td>- - - -</td>
+              <td>- - - -</td>
+              <td>- - - -</td>
+              <td>- - - -</td>
+              <td>- - - -</td>
+              <td>- - - -</td>
+              <td>
+              <button class="button" onclick="addData()">Tambah</button>
+              </td>
+              </tr>
+              `;
+          } else {
+              users.forEach((user, index) => {
+                  const gambar = GambarMuncul(user.PilihBarang);
+                  tableBody.innerHTML += `
+                  <tr>
+                  <td data-label="Gambar:"><img src="${gambar}" style="width: 50px; height: auto;"></td>
+                  <td data-label="Nama:">${user.name}</td>
+                  <td data-label="Kelas">${user.Kelas}</td>
+                  <td data-label="Jenis Barang">${user.PilihBarang}</td>
+                  <td data-label="Jumlah Barang">${user.JB}</td>
+                  <td data-label="Jam">${user.jam}</td>
+                  <td>
+                  <button class="button" onclick="editData(${index})">Edit</button>
+                  <br>
+                  <button class="button" onclick="deleteData(${index})">Hapus</button>
+                  </td>
+                  </tr>
+                  `;
+              });
+          }
+      }
+      function GambarMuncul(barang) {
+          if (barang == "StopKontak") {
+              return "../asset/Kabel.png";
+          } else if (barang == "Laptop") {
+              return "../asset/laptop2.png";
+          } else if (barang == "Speaker") {
+              return "../asset/Cekson.png";
+          } else if (barang == "LCD Proyektor") {
+              return "../asset/Proyektor-LCD-1024x536-removebg-preview.png";
+          } else if (barang == "Mouse") {
+              return "../asset/Mouses-removebg-preview.png";
+          } else {
+              return "../asset/Keyboard-removebg-preview.png";
+          }
+      }
+
+      function editData(index) {
+          const user = users[index];
+          document.getElementById("name").value = user.name;
+          document.getElementById("Kelas").value = user.Kelas;
+          document.getElementById("PilihBarang").value = user.PilihBarang;
+          document.getElementById("JB").value = user.JB;
+          document.getElementById("jam").value = user.jam;
+
+          deleteData(index);
+      }
+
+      function deleteData(index) {
+          users.splice(index, 1);
+          displayData();
+      }
+    </script>
+    
+  </body>
+</html>
